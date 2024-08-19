@@ -1,7 +1,7 @@
 {
-  "name": "docsify-drawio",
+  "name": "drawcsify",
   "version": "1.0.7",
-  "main": "index.js",
-  "author": "KonghaYao <20192831006@m.scnu.edu.cn>",
+  "main": "drawcsify.js",
+  "author": "Grant I Carroll <gcarroll2603@gmail.com>",
   "license": "MIT"
 }
