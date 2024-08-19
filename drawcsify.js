@@ -7,8 +7,8 @@
         "<": "&lt;",
         ">": "&gt;",
     };
-    
-    // TODO: Determine if there is a pre-existing tool for this
+
+    // TODO: Determine if there is a pre-existing tool that could do this instead of re-inventing the wheel
     const escapeHTML = (string) => {
         if (typeof string !== "string") return string;
         return string.replace(/[&'`"<>]/g, function (match) {
@@ -36,12 +36,15 @@
         `;
     };
 
-    // TODO: Figure out how this works
     const drawcsifyPlugin = function (hook) {
+        // TODO: Check if unused declaration can be removed
         hook.doneEach((hook) => {
             try {
                 window.GraphViewer.processElements();
-            } catch { }
+                // TODO: Figure out if we can reset styles after this to deal with Docsify changing container label sizes
+            } catch {
+                // TODO: Figure out what can cause this and provide some kind of error messaging
+            }
         });
     };
 
@@ -51,9 +54,15 @@
     $docsify.markdown = {
         renderer: {
             code: function (code, lang) {
-                if (lang === 'drawio' && window.drawioConverter) {
-                    return window.drawioConverter(code)
+                if (lang === 'drawio') {
+                    if (window.drawioConverter) {
+                        return window.drawioConverter(code)
+                    } else {
+                        // TODO: Figure out what can cause this and determine if it should provide some kind of error messaging
+                        return `<div class='drawio-code'>${code}</div>`
+                    }
                 } else {
+                    // TODO: Figure out what can cause this and determine if it should provide some kind of error messaging
                     return this.origin.code.apply(this, arguments);
                 }
             }

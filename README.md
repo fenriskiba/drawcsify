@@ -1,6 +1,6 @@
 # Drawcsify
 
-This is a docsify plugin that can convert drawio xml Data to a picture in your docs.
+This is a docsify plugin based on [KonghaYao/docsify-drawio](https://github.com/KonghaYao/docsify-drawio) that can convert drawio xml Data to a picture in your docs.
 
 ## First - write your drawio File Path in Your Markdown File
 
