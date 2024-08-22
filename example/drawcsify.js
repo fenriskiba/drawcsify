@@ -27,11 +27,18 @@
         };
 
         return `
-            <div class="mxgraph"
-                 style="max-width: 100%; 
-                        border: 1px solid transparent;
-                        background-color: white"
-                 data-mxgraph="${escapeHTML(JSON.stringify(mxGraphData))}">
+            <style>
+                svg * {
+                    all: revert-layer;
+                }
+            </style>
+            <div class="drawcsify">
+                <div class="mxgraph"
+                     style="max-width: 100%; 
+                            border: 1px solid transparent;
+                            background-color: white"
+                     data-mxgraph="${escapeHTML(JSON.stringify(mxGraphData))}">
+                </div>
             </div>
         `;
     };
