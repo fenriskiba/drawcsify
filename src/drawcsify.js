@@ -28,17 +28,19 @@
 
         return `
             <style>
-                svg * {
+                .mxgraph * {
+                    all: revert-layer;
+                }
+
+                .geDiagramContainer * {
                     all: revert-layer;
                 }
             </style>
-            <div class="drawcsify">
-                <div class="mxgraph"
-                     style="max-width: 100%; 
-                            border: 1px solid transparent;
-                            background-color: white"
-                     data-mxgraph="${escapeHTML(JSON.stringify(mxGraphData))}">
-                </div>
+            <div class="mxgraph"
+                 style="max-width: 100%; 
+                        border: 1px solid transparent;
+                        background-color: white"
+                 data-mxgraph="${escapeHTML(JSON.stringify(mxGraphData))}">
             </div>
         `;
     };
