@@ -16,6 +16,7 @@
         });
     };
 
+    // Embed Drawio XML into a div tag the viewer script will look for
     window.drawioConverter = function (xml) {
         const mxGraphData = {
             "highlight": "#0000ff",
@@ -35,16 +36,18 @@
             </div>`;
     };
 
+    // Run viewer script to generate SVG from the Drawio XML
     const drawcsifyPlugin = function (hook) {
         hook.doneEach(() => {
             try {
                 window.GraphViewer.processElements();
             } catch {
-                // TODO: Figure out what can cause this and provide some kind of error messaging
+                console.error("Drawcsify: Unable to process Docsify XML.")
             }
         });
     };
 
+    // Set styles to prevent Docsify styles from interfering with the diagram
     const drawcsifyStyles = function (hook) {
         hook.afterEach((html) => {
             const ds = `
@@ -62,21 +65,19 @@
         });
     };
 
-    // Add plugin to docsify's plugin array
-    $docsify = $docsify || {};
-
-    $docsify.markdown = {
+    // Add drawioConverter() as the renderer for "drawio" code blocks
+    window.$docsify.markdown = {
         renderer: {
             code: function (code, lang) {
                 if (lang === 'drawio') {
                     return window.drawioConverter(code)
                 } else {
-                    // TODO: Figure out what can cause this and determine if it should provide some kind of error messaging
                     return this.origin.code.apply(this, arguments);
                 }
             }
         }
     };
 
-    $docsify.plugins = [].concat($docsify.plugins || [], drawcsifyPlugin, drawcsifyStyles);
+    // Add plugin to Docsify's plugin array
+    window.$docsify.plugins = [].concat($docsify.plugins || [], drawcsifyPlugin, drawcsifyStyles);
 })();
