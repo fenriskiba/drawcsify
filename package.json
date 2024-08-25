@@ -1,0 +1,10 @@
+{
+  "name": "drawcsify",
+  "version": "1.1.0",
+  "main": "drawcsify.js",
+  "author": "Grant I Carroll <gcarroll2603@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "mkdir -p dist && npx terser -c -m -o dist/drawcsify.min.js -- drawcsify.js"
+  }
+}

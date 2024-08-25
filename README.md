@@ -16,5 +16,5 @@ Created my own fork because the project hasn't been touched in 3 years and I wan
 
 ```html
 <script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/docsify-drawio/drawio.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/drawcsify/drawcsify.min.js'></script>
 ```
