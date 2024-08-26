@@ -17,6 +17,18 @@
     <link rel="stylesheet" media="(prefers-color-scheme: dark)"
         href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
 
+    <!-- docsify-themeable customizations -->
+    <style>
+        :root {
+            /* Sidebar Title */
+            --sidebar-name-color: ;
+
+            /* Docsify Example Pannels */
+            --docsify-example-panels-left-panel-width: 50%;
+            --docsify-example-panels-right-panel-width: 50%;
+        }
+    </style>
+
     <!-- PrismJS Style -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs@1.15.0/themes/prism-tomorrow.min.css">
 </head>
@@ -25,16 +37,18 @@
     <div id="app"></div>
     <script>
         window.$docsify = {
-            name: '',
-            repo: '',
+            name: 'Drawcsify Example',
+            repo: 'https://github.com/fenriskiba/drawcsify/tree/main/docs',
         }
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <!-- Other Theme Extensions -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-example-panels"></script>
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
     <script src="//unpkg.com/prismjs@1.15.0/components/prism-c.min.js"></script>
     <script src="//unpkg.com/prismjs@1.15.0/components/prism-cpp.min.js"></script>
+    <script src="//unpkg.com/prismjs@1.15.0/components/prism-markdown.min.js"></script>
     <!-- Drawcsify and Draw.io Scripts -->
     <script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
     <script src='//cdn.jsdelivr.net/npm/drawcsify@latest'></script>
